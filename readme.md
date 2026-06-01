@@ -42,6 +42,24 @@ Aplikacja uruchomi się domyślnie pod adresem: [http://localhost:5173/](http://
    npm run build
    ```
 
+## 2.2 Instalacja biblioteki z GitHub
+
+Dodaj zależność w `package.json` aplikacji:
+
+```json
+{
+  "dependencies": {
+    "@akmf/ksef-fe-invoice-converter": "github:hyperstown/ksef-pdf-generator"
+  }
+}
+```
+
+Następnie uruchom:
+
+```bash
+npm install
+```
+
 ## 3. Jak wygenerować fakturę
 
 1. Po uruchomieniu aplikacji przejdź do **Wygeneruj wizualizacje faktury PDF**.

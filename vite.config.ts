@@ -49,7 +49,8 @@ export default defineConfig(({ mode }) => {
         entryRoot: libRoot,
         insertTypesEntry: true,
         outDir: path.resolve(__dirname, 'dist'),
-        exclude: ['src/app-public'],
+        include: ['src/**/*.ts'],
+        exclude: ['src/app-public', 'src/**/*.spec.ts', 'src/**/*.test.ts'],
       }),
     ],
 
