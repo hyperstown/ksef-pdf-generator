@@ -5,6 +5,8 @@
     "dev": "vite --mode public --config vite.config.ts",
     "build": "vite build --mode production",
     "prepare": "npm run build",
+    "serve:build": "npm run build && node server/pdf-server.mjs",
+    "serve": "node server/pdf-server.mjs",
     "type": "tsc -p src/app-public/tsconfig.json --noEmit",
     "test": "vitest",
     "test:ui": "vitest --ui",
@@ -23,6 +25,7 @@
   },
   "files": [
     "dist",
+    "server",
     "readme.md",
     "LICENSE"
   ],

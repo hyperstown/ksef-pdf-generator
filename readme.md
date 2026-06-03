@@ -60,6 +60,46 @@ Następnie uruchom:
 npm install
 ```
 
+## 2.3 Serwer HTTP generujący PDF
+
+Projekt zawiera prosty serwer Node.js bez dodatkowych zależności:
+
+```bash
+npm run serve:build 
+```
+albo
+
+```bash
+npm run serve
+```
+
+Endpointy:
+
+- `POST /invoice/pdf` - przyjmuje XML faktury i zwraca PDF
+- `POST /upo/pdf` - przyjmuje XML UPO i zwraca PDF
+
+Przykład z plikiem XML i danymi dodatkowymi w `multipart/form-data`:
+
+```bash
+curl -X POST http://127.0.0.1:3000/invoice/pdf \
+  -F "xml=@assets/invoice.xml;type=application/xml" \
+  -F "ksefNumber=5555555555-20250808-9231003CA67B-BE" \
+  -F "qrCode=https://ksef-test.mf.gov.pl/invoice/..." \
+  -F "qr2Code=https://ksef-test.mf.gov.pl/invoice/..." \
+  --output invoice.pdf
+```
+
+Przykład JSON:
+
+```json
+{
+  "xml": "<Faktura>...</Faktura>",
+  "ksefNumber": "5555555555-20250808-9231003CA67B-BE",
+  "qrCode": "https://ksef-test.mf.gov.pl/invoice/...",
+  "qr2Code": "https://ksef-test.mf.gov.pl/invoice/..."
+}
+```
+
 ## 3. Jak wygenerować fakturę
 
 1. Po uruchomieniu aplikacji przejdź do **Wygeneruj wizualizacje faktury PDF**.
